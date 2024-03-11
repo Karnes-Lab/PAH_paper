@@ -1,0 +1,7 @@
+	--bfile PAHmerge2        
+        --geno 0.01
+        --hwe 0.001
+        --maf 0.03
+        --exclude masterdelete_snp.txt
+	--make-bed
+	--out afterQC_2024-02-05

@@ -1,0 +1,16 @@
+	--bfile PAHmerge2
+	--noweb
+	--linear hide-covar
+	--geno 0.01
+	--hwe 0.001
+	--maf 0.03
+	--allow-no-sex
+	--pheno new_standard_PAHmerge_phenotype_2023-11-11.txt
+	--pheno-name standardized_MPAPdiff
+	--out PAHmerge2_white_standard_outliersRemoved_10PCs
+	--covar PAHmerge_covariate_agePowerTwo.txt
+	--covar-name Age,Age_2,Sex,PC1,PC2,PC3,PC4,PC5,PC6,PC7,PC8,PC9,PC10
+	--ci 0.95
+	--adjust
+	--exclude masterdelete_snp.txt
+	--remove PAH_co_exclude_2023-11-08

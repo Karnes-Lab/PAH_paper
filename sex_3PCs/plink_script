@@ -1,0 +1,13 @@
+        --noweb
+        --linear hide-covar
+        --geno 0.01
+        --hwe 0.001
+        --maf 0.03
+        --allow-no-sex
+        --pheno PAHmerge_phenotype.txt
+        --pheno-name MPAPdiff       
+	--covar PAHmerge_covariate_9_24_18.txt
+        --covar-name Sex,PC1,PC2,PC3
+        --ci 0.95
+	--adjust
+        --exclude masterdelete_snp.txt

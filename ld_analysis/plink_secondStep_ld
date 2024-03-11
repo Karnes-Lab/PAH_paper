@@ -1,0 +1,4 @@
+	--bfile afterQC_2024-02-05
+	--r2
+	--ld-snps kgp2431648 kgp4351376 kgp11844398 kgp5910174
+	--out ld_report_kgp5910174_allFourHits_2024-03-05
