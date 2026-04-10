@@ -1,1 +1,1 @@
-Two GWAS analyses are described in the project: 'Variation in SNX29 and Acute Vasodilator Response in Pulmonary Arterial Hypertension' by Karnes et al. This repository contains the code and GWAS association files that were utilised and produced in the forging project.  
+Two GWAS analyses are described in the project: 'Variation in SNX29 and Acute Vasodilator Response in Pulmonary Arterial Hypertension' by Karnes et al. This repository contains the code and GWAS association files that were utilised and produced in the forging project.   
