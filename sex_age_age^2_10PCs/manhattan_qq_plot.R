@@ -52,41 +52,32 @@ don <- dat %>%
 axisdf = don %>% group_by(CHR) %>% summarize(center=( max(BPcum, na.rm = T) + min(BPcum, na.rm = T) ) / 2 )
 
 # Make the plot
-g <- ggplot(don, aes(x=BPcum, y=-log10(P))) + # alpha=0.8
+g <- ggplot(don, aes(x=BPcum, y=-log10(P))) +
   
-  geom_point( aes(color=BETA), size=1.3) + #alpha=0.8
-  scale_color_gradientn(
-    colours = c("navyblue","#1e90ff", "ghostwhite", "red", "darkred"),
-  ) +
+  geom_point(aes(color=as.factor(CHR %% 2)), size=1.3) +
+  scale_color_manual(values = c("navyblue", "red")) +
   
   # custom X axis:
   scale_x_continuous( label = axisdf$CHR, breaks= axisdf$center ) +
   scale_y_continuous(expand = c(0.01, 0),
                      limits = c(0, 10),
                      breaks = seq(0,10,2)
-  ) +     # remove space between plot area and x axis
+  ) +
   
   # add genome-wide sig and sugg lines
   geom_hline(yintercept = -log10(sig), color = "red") +
   geom_hline(yintercept = -log10(sugg), linetype="dashed", color = "red") +
   
-  # Add highlighted points
-  # geom_point(data=subset(don, is_highlight=="yes"), color="#EF4056", size=2) +
-  
-  # Add label using ggrepel to avoid overlapping
-  # geom_label_repel( data=subset(don, is_annotate=="yes"), aes(label= topgenes$Symbol), size=2,
-  #                   segment.color = "transparent") +
-  
   # Custom the theme:
   theme_bw() +
   theme( 
-    legend.position="right",
+    legend.position="none",
     panel.border = element_blank(),
     panel.grid.major.x = element_blank(),
     panel.grid.minor.x = element_blank(),
     axis.line = element_line(color = "gray20")
   ) +
-  labs(x = "Chromosome", y = expression(paste("-lo", g[10]," (p-value)",sep="")), color = "beta")
+  labs(x = "Chromosome", y = expression(paste("-lo", g[10]," (p-value)",sep="")))
 g
 
 png('manhattan_10PCs.png', width=10, height=6, units ='in', res=300)
